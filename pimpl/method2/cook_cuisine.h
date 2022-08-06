@@ -4,9 +4,7 @@
 #include <vector>
 #include <memory>
 
-//  Pointer to impl ementation
-
-class CookImpl;
+#include "cook_cuisine_imp.h"
 
 // 后厨
 class Cook {
@@ -18,8 +16,6 @@ public:
     uint32_t getChefNum();                  /* 获取厨师数量 */
 
 private:
-    CookImpl* impl_;
+    CookImplPtr impl_;
 };
 typedef std::shared_ptr<Cook> CookPtr;
-
-
