@@ -1,0 +1,25 @@
+syntax = "proto3";
+message RecoSystem {
+     optional string userId = 1;
+     optional bytes bytesVal = 2;
+     message UserEmbedding {
+        int32 int32Val = 1;
+        string stringVal = 2;
+     }
+     optional UserEmbedding userEmbedding = 3;
+     repeated int32 repeatedInt32Val = 4;
+     repeated string repeatedStringVal = 5;
+}
+
+// $SRC_DIR: .proto 所在的源目录
+// --cpp_out: 生成 c++ 代码
+// $DST_DIR: 生成代码的目标目录
+// xxx.proto: 要针对哪个 proto 文件生成接口代码
+ 
+// protoc -I=$SRC_DIR --cpp_out=$DST_DIR $SRC_DIR/xxx.proto
+// export LD_LIBRARY_PATH=/usr/local/lib
+// 类型 string，名为 stringVal 的 optional 可选字段，字段编号为 1，此字段可出现 0 或 1 次
+// 类型 bytes，名为 bytesVal 的 optional 可选字段，字段编号为 2，此字段可出现 0 或 1 次
+// 类型 EmbeddedMessage（自定义的内嵌 message 类型），名为 embeddedExample1 的 optional 可选字段，字段编号为 3，此字段可出现 0 或 1 次
+// 类型 int32，名为 repeatedInt32Val 的 repeated 可重复字段，字段编号为 4，此字段可出现 任意多次（包括 0）
+// 类型 string，名为 repeatedStringVal 的 repeated 可重复字段，字段编号为 5，此字段可出现 任意多次（包括 0）
